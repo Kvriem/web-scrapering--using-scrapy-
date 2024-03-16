@@ -64,7 +64,8 @@ ROBOTSTXT_OBEY = True
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     "chocolate.pipelines.priceToUSDPipline": 100,
-    "chocolate.pipelines.Duplicatespiplane": 200
+    "chocolate.pipelines.Duplicatespiplane": 200,
+##    'chocolate.pipelines.SavingToPostgresPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
