@@ -1,4 +1,8 @@
-This repository documents my journey learning Scrapy through scraping chocolate products from "chocolate.co.uk". 
+This repository documents my first scrapy project.
+
+
+Scraping chocolate products from "chocolate.co.uk". 
+
 I've explored :
   -spiders
   -piplines
