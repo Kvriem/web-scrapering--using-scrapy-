@@ -19,7 +19,8 @@ class ChocolatespiderSpider(scrapy.Spider):
             chocolate.add_css('url', 'div.product-item-meta a::attr(href)')
             yield chocolate.load_item()
 
-        next_page = response.css('a.pagination__nav-item:nth-last-child(2)').attrib['href']
-        if next_page is not None:
-            next_page_url = 'https://www.chocolate.co.uk' + next_page
-            yield response.follow(next_page_url, callback=self.parse)
+        next_page_url = response.xpath('//button[contains(@aria-label, "Jump to last page")]/@href').extract_first()
+
+        if next_page_url:
+            # Follow the next page URL
+            yield scrapy.Request(url=response.urljoin(next_page_url), callback=self.parse)
